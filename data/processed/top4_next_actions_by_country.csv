@@ -1,0 +1,68 @@
+Country,next_action,count
+AT,Email,204
+AT,Follow Up,2
+AT,1St Appointment,1
+AT,2Nd Appointment,1
+BE,Email,358
+BE,1St Appointment,28
+BE,2Nd Appointment,25
+BE,Meeting,14
+CA,Email,444
+CA,Follow Up,132
+CA,Meeting,129
+CA,Review,37
+CH,Email,398
+CH,1St Appointment,7
+CH,Follow Up,4
+CH,Unknown,4
+DE,Email,3423
+DE,2Nd Appointment,387
+DE,1St Appointment,251
+DE,Meeting,98
+Denmark,Email,16
+Denmark,Follow Up,1
+FR,Email,18953
+FR,Call,16997
+FR,On-Site,3681
+FR,Follow Up,1763
+Guadeloupe,Call,89
+Guadeloupe,Email,49
+Guadeloupe,Follow Up,1
+Guyane Franأ§aise,Call,18
+Guyane Franأ§aise,Email,3
+IE,Call,62
+IE,Email,53
+IE,2Nd Appointment,48
+IE,Meeting,32
+IT,Call,141
+IT,2Nd Appointment,70
+IT,Meeting,58
+IT,1St Appointment,31
+LU,Email,45
+LU,1St Appointment,3
+LU,2Nd Appointment,2
+LU,Follow Up,2
+Martinique,Call,26
+Martinique,Email,3
+NL,Email,132
+NL,1St Appointment,24
+NL,Meeting,14
+NL,2Nd Appointment,12
+Rأ©union,Call,43
+Rأ©union,Email,21
+UK,Email,2711
+UK,2Nd Appointment,2408
+UK,1St Appointment,1568
+UK,Meeting,1320
+UNKNOWN,On-Site,105
+UNKNOWN,Email,38
+UNKNOWN,Meeting,12
+UNKNOWN,Call,5
+US,Email,45391
+US,Call,27804
+US,Meeting,14611
+US,Follow Up,9694
+[NULL],Email,35
+[NULL],Demo,8
+[NULL],Follow Up,6
+[NULL],Meeting,5
