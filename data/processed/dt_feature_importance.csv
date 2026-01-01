@@ -1,0 +1,32 @@
+feature,importance
+types_Call,0.4123914412499057
+types_Email,0.28963399200305795
+types_Meeting,0.08450950604275659
+Country_FR,0.056679651328082496
+Country_UK,0.050506282340808215
+activity_order,0.038337967626810764
+types_On-Site,0.028087356373116663
+Country_US,0.017359549488315567
+types_Follow Up,0.014782926632522207
+types_2Nd Appointment,0.003672357438686154
+solution_MRS,0.0024142609820020223
+Country_CA,0.0016247084939357008
+Country_BE,0.0
+Country_DE,0.0
+Country_CH,0.0
+Country_Rأ©union,0.0
+Country_NL,0.0
+Country_Martinique,0.0
+Country_LU,0.0
+Country_IT,0.0
+Country_IE,0.0
+Country_Guyane Franأ§aise,0.0
+Country_Guadeloupe,0.0
+Country_Denmark,0.0
+solution_PLS,0.0
+Country_UNKNOWN,0.0
+Country_[NULL],0.0
+types_Demo,0.0
+types_Discovery,0.0
+types_Review,0.0
+types_Unknown,0.0
