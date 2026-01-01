@@ -1,0 +1,128 @@
+Country,solution,path,count
+AT,MRS,Email,22
+AT,MRS,Email → Email,19
+AT,MRS,Email → Email → Email → Email,6
+AT,MRS,Email → Email → Email,5
+AT,MRS,Email → Email → Email → Email → Email → Email → Email,5
+BE,Digital,Email → Email → Email → Email → Email → Email → Email → Email → Follow Up → Email → Follow Up,1
+BE,MRS,Email,18
+BE,MRS,Email → Email,14
+BE,MRS,Email → Email → Email,4
+BE,MRS,Email → Email → Email → Email,3
+BE,MRS,Email → Email → 2Nd Appointment,2
+CA,Digital,Demo,1
+CA,Digital,Demo → Review → Review → Meeting,1
+CA,Digital,Email → Meeting,1
+CA,MRS,Email,22
+CA,MRS,Email → Email,6
+CA,MRS,Email → Email → Email,5
+CA,MRS,1St Appointment,4
+CA,MRS,Email → Email → Email → Email → Email → Email → Email,3
+CH,MRS,Email,21
+CH,MRS,Email → Email,17
+CH,MRS,Email → Email → Email → Email,13
+CH,MRS,Email → Email → Email,11
+CH,MRS,Email → Email → Email → Email → Email → Email,8
+DE,MRS,Email,221
+DE,MRS,Email → Email,156
+DE,MRS,Email → Email → Email,98
+DE,MRS,Email → Email → Email → Email,53
+DE,MRS,Email → Email → Email → Email → Email,32
+DK,MRS,Email,1
+Denmark,MRS,Email,21
+Denmark,MRS,Email → Email,11
+Denmark,MRS,Call,1
+Denmark,MRS,Email → Email → Email,1
+Denmark,MRS,Follow Up → Email,1
+FR,Digital,Call → Call,1
+FR,Digital,Call → Call → Call → Email → Call → Call → Call → Call → Call → Call → Email → Call → Call → Call → Email → Email → On-Site → Call → On-Site → On-Site → Call → Email → Email → Email → Email → Email → Call → Call → Call → Call → Email → Call → Call → Email → Email,1
+FR,Digital,Call → Email → Email → On-Site,1
+FR,Digital,Call → Email → Meeting → Call → Email → Follow Up → Email,1
+FR,Digital,Demo → Demo → Demo → Demo → Review → Follow Up → Email → On-Site → Email → Email → On-Site → Email → Email → Email → Email → Email → Email → Email → Email → Email → Email → Email → Email → Email → Email → Email → Email → Email → Email → Call → Call → Email → Email → Email → Email → Email → Call → Call → Email → Call → Call → Call → Email → Call → Call → Email → On-Site → Call → Call → Call → Email → Call → Call → Call → Call → Review → Email → Call → Call → Email → Call → Call → Email → Call → Call → Call → Email → Call → Email → Call → Email → Email → Call → Call → Call → Email → Email → Email → Email → Email → Email → Email → Email → Call → Email → Email → Call → Email → Email → Email → Call → Call → Email → Email → Email → Email → Email → Email → Call → Email → Call → Email → Email → Call,1
+FR,MRS,Email → Email,40
+FR,MRS,Email,38
+FR,MRS,Call,24
+FR,MRS,Email → Call,14
+FR,MRS,Call → Call,10
+FR,PLS,Email,4
+FR,PLS,Call,2
+FR,PLS,Email → Email,2
+FR,PLS,Call → Call,1
+FR,PLS,Email → Call,1
+Guadeloupe,MRS,Call → Call → Call → Call → Call → Call → Call → Call → Call → Email → Call → Call → Call → Email → Call → Call → Call → Call → Call → Call → Call → Call → Call → Call → Email → Email,1
+Guadeloupe,MRS,Call → Call → Call → Email → Email → Call,1
+Guadeloupe,MRS,Email → Email → Call → Call → Call → Call → Call → Call → Call → Call → Call → Call → Call → Call → Call → Call → Call → Call → Call → Email → Call → Call,1
+Guadeloupe,MRS,Email → Email → Email → Email → Call → Email → Email → Email → Call → Email → Email → Email → Email → Email → Email → Email → Email → Email → Email → Email → Email → Call → Call → Call → Call → Email → Call → Email → Email → Email → Email → Email → Email → Call → Call → Call → Call → Call → Call → Call → Call → Call → Call → Call,1
+Guadeloupe,MRS,On-Site → Follow Up → Call → Call → Call → Email → Email → Call → Email → Call → Call → Email → Call → Call → Email → Email → Call → Email → Email → Call → Email → Email → Call → Call → Call → Call → Call → Call → Email → Email → Call → Call → Call → Email → Email → Call → Email → Call → Call → Call → Call → Call → Call → Call → Call → Email,1
+Guyane Franأ§aise,MRS,Call → Call → Call → Call → Call → Call → Call → Call → Call → Call → Call → Call → Call → Call → Call → Call → Email → Email,1
+Guyane Franأ§aise,MRS,Call → Email → Call → Call,1
+Guyane Franأ§aise,MRS,Email → Call,1
+IE,MRS,Call,12
+IE,MRS,Email,6
+IE,MRS,Call → Call,3
+IE,MRS,Email → Email,3
+IE,MRS,Meeting → Call,3
+IT,MRS,Email,5
+IT,MRS,Meeting,5
+IT,MRS,1St Appointment,4
+IT,MRS,Call,4
+IT,MRS,Call → Call,3
+LU,MRS,Email,4
+LU,MRS,Email → Email → Email,2
+LU,MRS,1St Appointment,1
+LU,MRS,Email → Email,1
+LU,MRS,Email → Email → 2Nd Appointment → Email → Email → Email → Email → Demo → Email → 1St Appointment → 2Nd Appointment,1
+Martinique,MRS,Call → Call → Call → Call → Call → Call → Call → Call → Call → Call → Call → Email → Call → Call → Call → Call → Call → Call → Call → Call → Call → Call,1
+Martinique,MRS,Email,1
+Martinique,MRS,Email → Call → Call → Call → Call → Call → Call → Email → Email,1
+NL,Digital,Email → Email → Email → Email → Demo → Email → 2Nd Appointment → Meeting → Email → Demo → 2Nd Appointment,1
+NL,MRS,Email,15
+NL,MRS,Email → Email,8
+NL,MRS,Email → Email → Email,6
+NL,MRS,1St Appointment,4
+NL,MRS,1St Appointment → Email,2
+Rأ©union,MRS,Email,2
+Rأ©union,MRS,Call → Call → Call → Call → Call → Call → Call,1
+Rأ©union,MRS,Call → Call → Call → Call → Email → Call → Call → Email → Email → Call,1
+Rأ©union,MRS,Email → Call,1
+Rأ©union,MRS,Email → Call → Call → Call → Call → Call → Call → Call → Call → Call → Call → Call → Call → Call → Call → Email → Email → Email → Call,1
+UK,Digital,Email,2
+UK,Digital,1St Appointment → 1St Appointment → 1St Appointment → 2Nd Appointment → 2Nd Appointment → 2Nd Appointment → 1St Appointment → 2Nd Appointment → Meeting → On-Site → 1St Appointment → Email → On-Site → Email → Email → 1St Appointment → 1St Appointment → 2Nd Appointment → 1St Appointment → Email → Email,1
+UK,Digital,1St Appointment → Demo → Meeting → Meeting → Meeting → Meeting → Meeting → Meeting → Meeting → Demo → 1St Appointment,1
+UK,Digital,1St Appointment → Email,1
+UK,Digital,2Nd Appointment,1
+UK,MRS,Email,153
+UK,MRS,1St Appointment,78
+UK,MRS,Follow Up,64
+UK,MRS,Call,46
+UK,MRS,Meeting,42
+UK,PLS,1St Appointment → 1St Appointment → 2Nd Appointment → 2Nd Appointment → Demo → Follow Up → Follow Up → 1St Appointment → Email → 1St Appointment → 1St Appointment → Email → 1St Appointment → 2Nd Appointment → 2Nd Appointment → Follow Up → 2Nd Appointment → 1St Appointment,1
+UK,PLS,1St Appointment → 2Nd Appointment → 2Nd Appointment → Meeting → 1St Appointment,1
+UK,PLS,2Nd Appointment → 2Nd Appointment → 2Nd Appointment → 2Nd Appointment → Demo → 2Nd Appointment → On-Site → 2Nd Appointment → Email → Email → Email,1
+UK,PLS,Call,1
+UK,PLS,Email,1
+UNKNOWN,MRS,Meeting,2
+UNKNOWN,MRS,Call,1
+UNKNOWN,MRS,Call → Call,1
+UNKNOWN,MRS,Call → Call → Call,1
+UNKNOWN,MRS,Email,1
+US,Digital,Call → Call,5
+US,Digital,Call,4
+US,Digital,Call → Email,2
+US,Digital,Email → Call,2
+US,Digital,Call → Call → Call → Call,1
+US,MRS,Call,629
+US,MRS,Call → Call,375
+US,MRS,Email,333
+US,MRS,Email → Email,160
+US,MRS,Call → Call → Call,113
+US,PLS,Call,6
+US,PLS,Call → Email,5
+US,PLS,Email → Email,4
+US,PLS,Email,3
+US,PLS,Email → Call,2
+[NULL],MRS,Email,31
+[NULL],MRS,Email → Email,6
+[NULL],MRS,1St Appointment,2
+[NULL],MRS,Email → Meeting,2
+[NULL],MRS,1St Appointment → 2Nd Appointment,1
