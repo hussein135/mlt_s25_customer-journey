@@ -1,0 +1,100 @@
+Country,solution,next_action,count
+AT,MRS,Email,204
+AT,MRS,Follow Up,2
+AT,MRS,1St Appointment,1
+AT,MRS,2Nd Appointment,1
+BE,Digital,Email,8
+BE,Digital,Follow Up,2
+BE,MRS,Email,350
+BE,MRS,1St Appointment,28
+BE,MRS,2Nd Appointment,25
+BE,MRS,Meeting,14
+CA,Digital,Meeting,2
+CA,Digital,Review,2
+CA,MRS,Email,444
+CA,MRS,Follow Up,132
+CA,MRS,Meeting,127
+CA,MRS,Review,35
+CH,MRS,Email,398
+CH,MRS,1St Appointment,7
+CH,MRS,Follow Up,4
+CH,MRS,Unknown,4
+DE,MRS,Email,3423
+DE,MRS,2Nd Appointment,387
+DE,MRS,1St Appointment,251
+DE,MRS,Meeting,98
+Denmark,MRS,Email,16
+Denmark,MRS,Follow Up,1
+FR,Digital,Call,1682
+FR,Digital,Email,1214
+FR,Digital,On-Site,223
+FR,Digital,Follow Up,183
+FR,MRS,Email,17724
+FR,MRS,Call,15276
+FR,MRS,On-Site,3457
+FR,MRS,Follow Up,1551
+FR,PLS,Call,39
+FR,PLS,Follow Up,29
+FR,PLS,Email,15
+FR,PLS,On-Site,1
+Guadeloupe,MRS,Call,89
+Guadeloupe,MRS,Email,49
+Guadeloupe,MRS,Follow Up,1
+Guyane Franأ§aise,MRS,Call,18
+Guyane Franأ§aise,MRS,Email,3
+IE,MRS,Call,62
+IE,MRS,Email,53
+IE,MRS,2Nd Appointment,48
+IE,MRS,Meeting,32
+IT,MRS,Call,141
+IT,MRS,2Nd Appointment,70
+IT,MRS,Meeting,58
+IT,MRS,1St Appointment,31
+LU,MRS,Email,45
+LU,MRS,1St Appointment,3
+LU,MRS,2Nd Appointment,2
+LU,MRS,Follow Up,2
+Martinique,MRS,Call,26
+Martinique,MRS,Email,3
+NL,Digital,Email,5
+NL,Digital,2Nd Appointment,2
+NL,Digital,Demo,2
+NL,Digital,Meeting,1
+NL,MRS,Email,127
+NL,MRS,1St Appointment,24
+NL,MRS,Meeting,13
+NL,MRS,2Nd Appointment,10
+Rأ©union,MRS,Call,43
+Rأ©union,MRS,Email,21
+UK,Digital,2Nd Appointment,194
+UK,Digital,Email,97
+UK,Digital,Meeting,71
+UK,Digital,1St Appointment,61
+UK,MRS,Email,2606
+UK,MRS,2Nd Appointment,2202
+UK,MRS,1St Appointment,1499
+UK,MRS,Meeting,1248
+UK,PLS,2Nd Appointment,12
+UK,PLS,1St Appointment,8
+UK,PLS,Email,8
+UK,PLS,Demo,3
+UNKNOWN,MRS,On-Site,105
+UNKNOWN,MRS,Email,38
+UNKNOWN,MRS,Meeting,12
+UNKNOWN,MRS,Call,5
+US,Digital,Email,2027
+US,Digital,Call,1203
+US,Digital,Meeting,638
+US,Digital,Follow Up,490
+US,MRS,Email,42889
+US,MRS,Call,26452
+US,MRS,Meeting,13875
+US,MRS,Follow Up,9163
+US,PLS,Email,475
+US,PLS,Call,149
+US,PLS,Meeting,98
+US,PLS,Follow Up,41
+[NULL],MRS,Email,35
+[NULL],MRS,Demo,8
+[NULL],MRS,Follow Up,6
+[NULL],MRS,Meeting,5
