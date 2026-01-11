@@ -31,6 +31,8 @@ class AccountWeightStore:
       - last_touch_weight
       - last_action
       - is_first_touch
+      - touch_count
+      - action_weights (وزن لكل نوع Action داخل الحساب)
     """
     state_path: Path
 
@@ -53,7 +55,13 @@ class AccountWeightStore:
         data = self._read()
         return data.get(
             str(account_id),
-            {"last_touch_weight": 0.0, "last_action": None, "is_first_touch": True}
+            {
+                "last_touch_weight": 0.0,
+                "last_action": None,
+                "is_first_touch": True,
+                "touch_count": 0,
+                "action_weights": {},
+            }
         )
 
     def set(self, account_id: str, state: Dict[str, Any]) -> None:
@@ -90,7 +98,11 @@ def update_account_weight(
 
     state = store.get(account_id)
     last_touch_weight_prev = float(state.get("last_touch_weight", 0.0))
-    is_first_touch = bool(state.get("is_first_touch", True))
+    # دعم ترحيل الحالة القديمة: touch_count/action_weights قد لا تكون موجودة
+    touch_count = int(state.get("touch_count", 0))
+    action_weights = dict(state.get("action_weights", {}) or {})
+    is_first_touch = bool(state.get("is_first_touch", touch_count == 0))
+
 
     base = float(base_weights.get(action_type, 1.0))
 
@@ -104,9 +116,15 @@ def update_account_weight(
     adjusted = max(adjusted, MIN_ADJUSTED_WEIGHT)
 
     # خزّن الحالة (مع floor لآخر لمسّة أيضاً)
+    action_weights[str(action_type)] = float(adjusted)
+    touch_count = touch_count + 1
+
+    # خزّن الحالة (مع floor لآخر لمسّة أيضاً)
     store.set(account_id, {
         "last_touch_weight": max(adjusted, MIN_LAST_TOUCH_WEIGHT),
         "last_action": action_type,
-        "is_first_touch": is_first_touch
+        "is_first_touch": is_first_touch,
+        "touch_count": touch_count,
+        "action_weights": action_weights,
     })
     return adjusted
