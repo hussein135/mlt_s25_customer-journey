@@ -1,7 +1,12 @@
 {
   "A001": {
-    "last_touch_weight": 0.050000000000000044,
-    "last_action": "Call",
-    "is_first_touch": false
+    "last_touch_weight": 0.95,
+    "last_action": "Follow Up",
+    "is_first_touch": false,
+    "touch_count": 7,
+    "action_weights": {
+      "Email": 0.050000000000000044,
+      "Follow Up": 0.95
+    }
   }
 }
