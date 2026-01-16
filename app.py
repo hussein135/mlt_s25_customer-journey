@@ -20,19 +20,20 @@ st.set_page_config(
 )
 
 st.title("Customer Journey System")
-st.write("Adding new account or action GUI(UPDATES WEIGHTS AND SHOWS TOP 4 ACTION")
+st.write("واجهة تفاعلية لعرض أفضل الأفعال (Top 4 Actions) حسب الدولة والحل، مع تحديث الأوزان ديناميكياً.")
+
 # -------------------------------------------------
 # اختيار الوضع من الـ Sidebar
 # -------------------------------------------------
 mode = st.sidebar.radio(
-    "CHOOSE OPP:",
+    "اختر العملية:",
     ["إضافة حساب جديد (add_account)", "إضافة Action لحساب (add_action)"]
 )
 
 # -------------------------------------------------
-# 1) إضافة حساب جديد (add_account)
+# 1) إضافة حساب جديد
 # -------------------------------------------------
-if mode == "إضافة حساب جديد (add_account":
+if mode == "إضافة حساب جديد (add_account)":
     st.header("إضافة حساب جديد")
 
     with st.form("add_account_form"):
@@ -64,7 +65,7 @@ if mode == "إضافة حساب جديد (add_account":
             st.table(result["top4_by_country_solution"])
 
 # -------------------------------------------------
-# 2)  ACTION اضافة
+# 2) إضافة Action لحساب موجود
 # -------------------------------------------------
 elif mode == "إضافة Action لحساب (add_action)":
     st.header("إضافة Action وتحديث الأوزان")
@@ -106,6 +107,3 @@ elif mode == "إضافة Action لحساب (add_action)":
 
             st.write("**Top 4 actions by Country & Solution (بعد التحديث)**")
             st.table(result["top4_by_country_solution"])
-
-
-
