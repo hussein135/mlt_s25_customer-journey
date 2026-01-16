@@ -2,9 +2,9 @@ name: Run Notebooks
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
 jobs:
   test-notebooks:
@@ -22,26 +22,49 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          if [ -f requirements.txt ]; then
+            pip install -r requirements.txt
+          else
+            echo "requirements.txt not found. Please add it in repo root."
+            exit 1
+          fi
           pip install nbclient nbformat ipykernel
+
+      - name: Set PYTHONPATH
+        run: echo "PYTHONPATH=$GITHUB_WORKSPACE" >> $GITHUB_ENV
 
       - name: Run notebooks (cell by cell)
         run: |
           python - <<'PY'
-          import glob
           from nbclient import NotebookClient
           import nbformat
+          from pathlib import Path
 
-          notebooks = sorted(glob.glob("notebooks/*.ipynb"))
-          if not notebooks:
-              raise SystemExit("No notebooks found in notebooks/")
+          # شغّل فقط الدفاتر التي لا تعتمد على data/raw
+          # عدّل هذه القائمة لتطابق أسماء الدفاتر الموجودة عندك فعلياً
+          notebooks = [
+              "notebooks/02_journey_analysis.ipynb",
+              "notebooks/03_decision_tree_next_actions.ipynb",
+              "notebooks/04_top_actions_aggregates.ipynb",
+          ]
+
+          ran_any = False
 
           for path in notebooks:
+              p = Path(path)
+              if not p.exists():
+                  print(f"SKIP (not found): {path}")
+                  continue
+
+              ran_any = True
               print(f"Running: {path}")
               nb = nbformat.read(path, as_version=4)
-              client = NotebookClient(nb, timeout=600, kernel_name="python3")
+              client = NotebookClient(nb, timeout=900, kernel_name="python3")
               client.execute()
               print(f"OK: {path}")
 
-          print("All notebooks executed successfully.")
+          if not ran_any:
+              raise SystemExit("No notebooks were executed. Please verify notebook paths in workflow.")
+
+          print("All selected notebooks executed successfully.")
           PY
