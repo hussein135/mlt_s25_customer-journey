@@ -27,7 +27,7 @@ st.write("ADD ACCOUNT OR ACTION AND PRINT TOP4 ACTION AND UPDATE WEIGHTS")
 # -------------------------------------------------
 mode = st.sidebar.radio(
     "اختر العملية:",
-    ["إضافة حساب جديد (add_account)", "إضافة Action لحساب (add_action)"]
+    [" (add_account)", "إضافة Action لحساب (add_action)"]
 )
 
 # -------------------------------------------------
@@ -107,5 +107,6 @@ elif mode == "إضافة Action لحساب (add_action)":
 
             st.write("**Top 4 actions by Country & Solution (بعد التحديث)**")
             st.table(result["top4_by_country_solution"])
+
 
 
