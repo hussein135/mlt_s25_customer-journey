@@ -4,6 +4,16 @@ from pathlib import Path
 from src.system import CustomerJourneySystem
 from src.weights import DEFAULT_BASE_WEIGHTS
 
+# -------------------------------------------------
+# إعدادات الصفحة (يفضل وضعها في الأعلى)
+# -------------------------------------------------
+st.set_page_config(
+    page_title="نظام رحلة العميل",
+    layout="wide"
+)
+
+st.title("نظام رحلة العميل")
+st.write("واجهة تفاعلية لعرض أفضل 4 إجراءات مقترحة حسب الدولة والحل، مع تحديث الأوزان ديناميكياً.")
 
 # -------------------------------------------------
 # تهيئة النظام في session_state حتى لا يُعاد تحميله كل مرة
@@ -14,101 +24,108 @@ if "cjs" not in st.session_state:
 
 cjs = st.session_state.cjs
 
-st.set_page_config(
-    page_title="Customer Journey System",
-    layout="wide"
-)
-
-st.title("Customer Journey System")
-st.write("ADD ACCOUNT OR ACTION AND PRINT TOP4 ACTION AND UPDATE WEIGHTS")
-
 # -------------------------------------------------
-# اختيار الوضع من الـ Sidebar
+# اختيار العملية من الشريط الجانبي
 # -------------------------------------------------
-mode = st.sidebar.radio(
+العملية = st.sidebar.radio(
     "اختر العملية:",
-    ["إضافة حساب جديد ADD ACCOUNT, "إضافة Action لحساب (add_action)"]
+    ["إضافة حساب جديد", "إضافة إجراء لحساب"]
 )
 
 # -------------------------------------------------
 # 1) إضافة حساب جديد
 # -------------------------------------------------
-if mode == "إضافة حساب جديدإضافة حساب جديد ADD ACCOUNT":
+if العملية == "إضافة حساب جديد":
     st.header("إضافة حساب جديد")
 
-    with st.form("add_account_form"):
-        account_id = st.text_input("Account ID", value="A001")
-        country = st.text_input("Country ")
-        solution = st.text_input("Solution ")
+    with st.form("نموذج_إضافة_حساب"):
+        account_id = st.text_input("معرّف الحساب", value="A001")
+        country = st.text_input("الدولة (مثال: AT)")
+        solution = st.text_input("الحل (مثال: MRS)")
 
-        submitted = st.form_submit_button(" add_account")
+        تنفيذ = st.form_submit_button("تنفيذ")
 
-    if submitted:
+    if تنفيذ:
+        # تنظيف المدخلات
+        account_id = (account_id or "").strip()
+        country = (country or "").strip().upper()
+        solution = (solution or "").strip().upper()
+
         if not account_id or not country or not solution:
-            st.error("الرجاء تعبئة جميع الحقول.")
+            st.error("يرجى تعبئة جميع الحقول قبل التنفيذ.")
         else:
-            result = cjs.add_account(
-                account_id=account_id,
-                country=country,
-                solution=solution,
-            )
+            try:
+                result = cjs.add_account(
+                    account_id=account_id,
+                    country=country,
+                    solution=solution,
+                )
 
-            st.subheader("النتائج")
+                st.subheader("النتائج")
 
-            st.write("**Top 4 actions by Country**")
-            st.table(result["top4_by_country"])
+                st.write("أفضل 4 إجراءات حسب الدولة")
+                st.table(result.get("top4_by_country", []))
 
-            st.write("**Top 4 actions by Solution**")
-            st.table(result["top4_by_solution"])
+                st.write("أفضل 4 إجراءات حسب الحل")
+                st.table(result.get("top4_by_solution", []))
 
-            st.write("**Top 4 actions by Country & Solution**")
-            st.table(result["top4_by_country_solution"])
+                st.write("أفضل 4 إجراءات حسب الدولة والحل")
+                st.table(result.get("top4_by_country_solution", []))
+
+            except Exception as e:
+                st.error("حدث خطأ أثناء تنفيذ العملية.")
+                st.exception(e)
 
 # -------------------------------------------------
-# 2) إضافة Action لحساب موجود
+# 2) إضافة إجراء لحساب موجود
 # -------------------------------------------------
-elif mode == "إضافة Action لحساب (add_action)":
-    st.header("إضافة Action وتحديث الأوزان")
+elif العملية == "إضافة إجراء لحساب":
+    st.header("إضافة إجراء وتحديث الأوزان")
 
-    with st.form("add_action_form"):
-        account_id = st.text_input("Account ID", value="A001")
-        country = st.text_input("Country (مثال: AT)")
-        solution = st.text_input("Solution (مثال: MRS)")
+    with st.form("نموذج_إضافة_إجراء"):
+        account_id = st.text_input("معرّف الحساب", value="A001")
+        country = st.text_input("الدولة (مثال: AT)")
+        solution = st.text_input("الحل (مثال: MRS)")
 
         action_type = st.selectbox(
-            "نوع الـ Action",
+            "نوع الإجراء",
             options=list(DEFAULT_BASE_WEIGHTS.keys())
         )
 
-        submitted = st.form_submit_button("تنفيذ add_action")
+        تنفيذ = st.form_submit_button("تنفيذ")
 
-    if submitted:
+    if تنفيذ:
+        # تنظيف المدخلات
+        account_id = (account_id or "").strip()
+        country = (country or "").strip().upper()
+        solution = (solution or "").strip().upper()
+
         if not account_id or not country or not solution:
-            st.error("الرجاء تعبئة جميع الحقول.")
+            st.error("يرجى تعبئة جميع الحقول قبل التنفيذ.")
         else:
-            result = cjs.add_action(
-                account_id=account_id,
-                country=country,
-                solution=solution,
-                action_type=action_type,
-            )
+            try:
+                result = cjs.add_action(
+                    account_id=account_id,
+                    country=country,
+                    solution=solution,
+                    action_type=action_type,
+                )
 
-            st.subheader("النتائج")
+                st.subheader("النتائج")
 
-            st.write(f"**الحساب:** {result['account_id']}")
-            st.write(f"**الـ Action المضافة:** {result['added_action']}")
-            st.write(f"**الوزن المعدل (adjusted_weight):** {result['adjusted_weight']}")
+                st.write(f"معرّف الحساب: {result.get('account_id', '')}")
+                st.write(f"الإجراء المضاف: {result.get('added_action', '')}")
+                st.write(f"الوزن المعدّل: {result.get('adjusted_weight', '')}")
 
-            st.write("**Top 4 actions by Country (بعد التحديث)**")
-            st.table(result["top4_by_country"])
+                st.write("أفضل 4 إجراءات حسب الدولة (بعد التحديث)")
+                st.table(result.get("top4_by_country", []))
 
-            st.write("**Top 4 actions by Solution (بعد التحديث)**")
-            st.table(result["top4_by_solution"])
+                st.write("أفضل 4 إجراءات حسب الحل (بعد التحديث)")
+                st.table(result.get("top4_by_solution", []))
 
-            st.write("**Top 4 actions by Country & Solution (بعد التحديث)**")
-            st.table(result["top4_by_country_solution"])
+                st.write("أفضل 4 إجراءات حسب الدولة والحل (بعد التحديث)")
+                st.table(result.get("top4_by_country_solution", []))
 
-
-
-
-
+            except Exception as e:
+                st.error("حدث خطأ أثناء تنفيذ العملية.")
+                st.exception(e)
