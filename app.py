@@ -38,10 +38,10 @@ if mode == "إضافة حساب جديد (add_account)":
 
     with st.form("add_account_form"):
         account_id = st.text_input("Account ID", value="A001")
-        country = st.text_input("Country (مثال: AT)")
-        solution = st.text_input("Solution (مثال: MRS)")
+        country = st.text_input("Country ")
+        solution = st.text_input("Solution ")
 
-        submitted = st.form_submit_button("تنفيذ add_account")
+        submitted = st.form_submit_button(" add_account")
 
     if submitted:
         if not account_id or not country or not solution:
@@ -107,4 +107,5 @@ elif mode == "إضافة Action لحساب (add_action)":
 
             st.write("**Top 4 actions by Country & Solution (بعد التحديث)**")
             st.table(result["top4_by_country_solution"])
+
 
