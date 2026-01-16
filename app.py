@@ -4,11 +4,12 @@ from pathlib import Path
 from src.system import CustomerJourneySystem
 from src.weights import DEFAULT_BASE_WEIGHTS
 
+
 # -------------------------------------------------
 # تهيئة النظام في session_state حتى لا يُعاد تحميله كل مرة
 # -------------------------------------------------
 if "cjs" not in st.session_state:
-    processed_dir = Path("data/processed")  # عدل المسار إذا لزم
+    processed_dir = Path("data/processed")  # تأكد أن هذا المسار موجود في المستودع
     st.session_state.cjs = CustomerJourneySystem(processed_dir=processed_dir)
 
 cjs = st.session_state.cjs
@@ -74,7 +75,6 @@ elif mode == "إضافة Action لحساب (add_action)":
         country = st.text_input("Country (مثال: AT)")
         solution = st.text_input("Solution (مثال: MRS)")
 
-        # أنواع الأفعال من DEFAULT_BASE_WEIGHTS في weights.py
         action_type = st.selectbox(
             "نوع الـ Action",
             options=list(DEFAULT_BASE_WEIGHTS.keys())
