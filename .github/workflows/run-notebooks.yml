@@ -1,0 +1,47 @@
+name: Run Notebooks
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  test-notebooks:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          pip install nbclient nbformat ipykernel
+
+      - name: Run notebooks (cell by cell)
+        run: |
+          python - <<'PY'
+          import glob
+          from nbclient import NotebookClient
+          import nbformat
+
+          notebooks = sorted(glob.glob("notebooks/*.ipynb"))
+          if not notebooks:
+              raise SystemExit("No notebooks found in notebooks/")
+
+          for path in notebooks:
+              print(f"Running: {path}")
+              nb = nbformat.read(path, as_version=4)
+              client = NotebookClient(nb, timeout=600, kernel_name="python3")
+              client.execute()
+              print(f"OK: {path}")
+
+          print("All notebooks executed successfully.")
+          PY
