@@ -20,7 +20,7 @@ st.set_page_config(
 )
 
 st.title("Customer Journey System")
-st.write("واجهة تفاعلية لعرض أفضل الأفعال (Top 4 Actions) حسب الدولة والحل، مع تحديث الأوزان ديناميكياً.")
+st.write("ADD ACCOUNT OR ACTION AND PRINT TOP4 ACTION AND UPDATE WEIGHTS")
 
 # -------------------------------------------------
 # اختيار الوضع من الـ Sidebar
@@ -107,3 +107,4 @@ elif mode == "إضافة Action لحساب (add_action)":
 
             st.write("**Top 4 actions by Country & Solution (بعد التحديث)**")
             st.table(result["top4_by_country_solution"])
+
