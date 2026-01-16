@@ -30,7 +30,7 @@ mode = st.sidebar.radio(
 )
 
 # -------------------------------------------------
-# 1) إضافة حساب جديد
+# 1) إضافة حساب جديد (add_account)
 # -------------------------------------------------
 if mode == " add_account":
     st.header("إضافة حساب جديد")
@@ -106,4 +106,5 @@ elif mode == "إضافة Action لحساب (add_action)":
 
             st.write("**Top 4 actions by Country & Solution (بعد التحديث)**")
             st.table(result["top4_by_country_solution"])
+
 
