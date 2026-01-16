@@ -1,4 +1,9 @@
-# src/system.py
+
+"""هذا الملف يحتوي على تعريف نظامCustomerJourneySystem  المسؤول عن:
+- تحميل بيانات المسارات (journeys) من الملفات المعالجة
+- حفظ حالة كل حساب (Account state) أثناء تنفيذ الإجراءات
+- حساب أفضل 4 إجراءات مقترحة لكل حساب بناءً على الدولة والحل (Country, Solution)
+"""
 from __future__ import annotations
 
 from dataclasses import dataclass
@@ -18,7 +23,7 @@ from .weights import (
 @dataclass
 class CustomerJourneySystem:
     """
-    Step 4 – Build a complete system (حسب نص المسألة):
+    Step 4 – Build a complete system:
 
     - add_account:
         * Top 4 actions by country
@@ -84,7 +89,7 @@ class CustomerJourneySystem:
           - نعيد ترتيب Top4 باستخدام الوزن الجديد
         """
 
-        # 1) تحديث وزن الحساب (حسب الصورة)
+        # 1) تحديث وزن الحساب 
         adjusted_weight = update_account_weight(
             store=self.weight_store,
             account_id=account_id,
@@ -118,7 +123,7 @@ class CustomerJourneySystem:
                 lambda a: float(action_weights.get(str(a), 1.0))
             )
 
-            # عقوبة تكرار نفس الـ action مباشرة
+            #  تكرار نفس الـ action مباشرة
             df["repeat_penalty"] = df["next_action"].apply(
                 lambda a: 0.7 if a == action_type else 1.0
             )

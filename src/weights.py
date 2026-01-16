@@ -7,7 +7,7 @@ from typing import Dict, Any, Optional
 import json
 
 
-# أوزان أساسية (ابدأ بــ 1.0 للجميع، ويمكنك تعديلها لاحقاً)
+# أوزان أساسية (  1.0 للجميع، )
 DEFAULT_BASE_WEIGHTS: Dict[str, float] = {
     "Email": 1.0,
     "Call": 1.0,
