@@ -25,46 +25,70 @@ jobs:
           if [ -f requirements.txt ]; then
             pip install -r requirements.txt
           else
-            echo "requirements.txt not found. Please add it in repo root."
+            echo "requirements.txt not found in repo root."
             exit 1
           fi
+          # أدوات تشغيل الـ notebooks
           pip install nbclient nbformat ipykernel
+          # دعم قراءة Excel / xltx غالباً يحتاج openpyxl
+          pip install openpyxl
 
       - name: Set PYTHONPATH
         run: echo "PYTHONPATH=$GITHUB_WORKSPACE" >> $GITHUB_ENV
 
+      - name: Smoke test system (load processed files)
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from src.system import CustomerJourneySystem
+
+          cjs = CustomerJourneySystem(processed_dir=Path("data/processed"))
+          out = cjs.add_account(account_id="A001", country="AT", solution="MRS")
+          assert "top4_by_country" in out
+          print("Smoke test OK")
+          PY
+
       - name: Run notebooks (cell by cell)
         run: |
           python - <<'PY'
-          from nbclient import NotebookClient
-          import nbformat
+          import glob
           from pathlib import Path
+          import nbformat
+          from nbclient import NotebookClient
 
-          # شغّل فقط الدفاتر التي لا تعتمد على data/raw
-          # عدّل هذه القائمة لتطابق أسماء الدفاتر الموجودة عندك فعلياً
-          notebooks = [
-              "notebooks/02_journey_analysis.ipynb",
-              "notebooks/03_decision_tree_next_actions.ipynb",
-              "notebooks/04_top_actions_aggregates.ipynb",
-          ]
+          # اكتشف جميع الدفاتر ورتبها
+          notebooks = sorted(glob.glob("notebooks/*.ipynb"))
+          if not notebooks:
+              raise SystemExit("No notebooks found in notebooks/")
+
+          raw_file = Path("data/raw/data_all.xltx")
+          skip_cleaning = not raw_file.exists()
+
+          print("Detected notebooks:")
+          for nb in notebooks:
+              print(" -", nb)
+
+          print("\nRaw file exists:", raw_file.exists(), "| path:", str(raw_file))
 
           ran_any = False
 
           for path in notebooks:
-              p = Path(path)
-              if not p.exists():
-                  print(f"SKIP (not found): {path}")
+              name = Path(path).name
+
+              # إذا ملف الخام غير موجود، تخطّى فقط دفتر التنظيف
+              if skip_cleaning and name == "01_data_cleaning.ipynb":
+                  print(f"SKIP (raw file missing): {path}")
                   continue
 
-              ran_any = True
-              print(f"Running: {path}")
+              print(f"\nRunning: {path}")
               nb = nbformat.read(path, as_version=4)
-              client = NotebookClient(nb, timeout=900, kernel_name="python3")
+              client = NotebookClient(nb, timeout=1200, kernel_name="python3")
               client.execute()
               print(f"OK: {path}")
+              ran_any = True
 
           if not ran_any:
-              raise SystemExit("No notebooks were executed. Please verify notebook paths in workflow.")
+              raise SystemExit("No notebooks were executed (all skipped). Check conditions/paths.")
 
-          print("All selected notebooks executed successfully.")
+          print("\nAll executed notebooks finished successfully.")
           PY
