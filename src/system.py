@@ -1,13 +1,9 @@
-# src/system.py
-#""
 
-system.py
-
-هذا الملف يحتوي على تعريف نظامCustomerJourneySystem  المسؤول عن:
+"""هذا الملف يحتوي على تعريف نظامCustomerJourneySystem  المسؤول عن:
 - تحميل بيانات المسارات (journeys) من الملفات المعالجة
 - حفظ حالة كل حساب (Account state) أثناء تنفيذ الإجراءات
-- حساب أفضل 4 إجراءات مقترحة لكل حساب بناءً على الدولة والحل (Country, Solution)""
-
+- حساب أفضل 4 إجراءات مقترحة لكل حساب بناءً على الدولة والحل (Country, Solution)
+"""
 from __future__ import annotations
 
 from dataclasses import dataclass
