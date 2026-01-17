@@ -36,7 +36,7 @@ if mode == " (add_account)":
     st.header("إضافة حساب جديد")
 
     with st.form("add_account_form"):
-        account_id = st.text_input("Account ID", value="A001")
+        account_id = st.text_input("Account ID", value="")
         country = st.text_input("Country (مثال: AT)")
         solution = st.text_input("Solution (مثال: MRS)")
 
@@ -70,7 +70,7 @@ elif mode == " لحساب (add_action)":
     st.header("إضافة Action وتحديث الأوزان")
 
     with st.form("add_action_form"):
-        account_id = st.text_input("Account ID", value="A001")
+        account_id = st.text_input("Account ID", value="")
         country = st.text_input("Country (مثال: AT)")
         solution = st.text_input("Solution (مثال: MRS)")
 
