@@ -26,7 +26,7 @@ st.write("GUI FOR ADDING ACCOUNT OR ACTION AND PRINTS TOP 4 ACTION (RECALCLUTES 
 # -------------------------------------------------
 mode = st.sidebar.radio(
     "اختر العملية:",
-    [" (add_account)", "إضافة Action لحساب (add_action)"]
+    [" (add_account)", " لحساب (add_action)"]
 )
 
 # -------------------------------------------------
@@ -66,7 +66,7 @@ if mode == " (add_account)":
 # -------------------------------------------------
 # 2) إضافة Action لحساب موجود
 # -------------------------------------------------
-elif mode == "إضافة Action لحساب (add_action)":
+elif mode == " لحساب (add_action)":
     st.header("إضافة Action وتحديث الأوزان")
 
     with st.form("add_action_form"):
