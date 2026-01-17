@@ -8,7 +8,7 @@ from src.weights import DEFAULT_BASE_WEIGHTS
 # تهيئة النظام في session_state حتى لا يُعاد تحميله كل مرة
 # -------------------------------------------------
 if "cjs" not in st.session_state:
-    processed_dir = Path("data/processed")  
+    processed_dir = Path("data/processed")  # عدل المسار إذا لزم
     st.session_state.cjs = CustomerJourneySystem(processed_dir=processed_dir)
 
 cjs = st.session_state.cjs
@@ -19,20 +19,20 @@ st.set_page_config(
 )
 
 st.title("Customer Journey System")
-st.write("GUI FOR ADDING ACCOUNT OR ACTION AND PRINTS TOP 4 ACTION (RECALCLUTES WEIGHTS)")
+st.write("واجهة تفاعلية لعرض أفضل الأفعال (Top 4 Actions) حسب الدولة والحل، مع تحديث الأوزان ديناميكياً.")
 
 # -------------------------------------------------
 # اختيار الوضع من الـ Sidebar
 # -------------------------------------------------
 mode = st.sidebar.radio(
     "اختر العملية:",
-    [" (add_account)", " لحساب (add_action)"]
+    ["إضافة حساب جديد (add_account)", "إضافة Action لحساب (add_action)"]
 )
 
 # -------------------------------------------------
 # 1) إضافة حساب جديد
 # -------------------------------------------------
-if mode == " (add_account)":
+if mode == "إضافة حساب جديد (add_account)":
     st.header("إضافة حساب جديد")
 
     with st.form("add_account_form"):
@@ -66,7 +66,7 @@ if mode == " (add_account)":
 # -------------------------------------------------
 # 2) إضافة Action لحساب موجود
 # -------------------------------------------------
-elif mode == " لحساب (add_action)":
+elif mode == "إضافة Action لحساب (add_action)":
     st.header("إضافة Action وتحديث الأوزان")
 
     with st.form("add_action_form"):
